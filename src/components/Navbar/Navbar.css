@@ -1,0 +1,30 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40px;
+  gap: 4em;
+}
+
+.Navbar__Links {
+  display: flex;
+  gap: 4em;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.Navbar__Links a {
+  font-weight: 800;
+  color: grey;
+  text-decoration: none;
+}
+
+.Navbar__Links a.active {
+  color: white;
+}
