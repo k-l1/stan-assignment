@@ -1,11 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
-import "./Layout.css";
 import { Navbar } from "../components/Navbar";
 import { navigationRoutes } from "../../static/navigationRoutes";
+import styles from "./Layout.module.css";
 
 export const Layout = () => {
   return (
-    <div className="Layout">
+    <div className={styles.layout}>
       <Navbar routes={navigationRoutes} />
       <Outlet />
     </div>

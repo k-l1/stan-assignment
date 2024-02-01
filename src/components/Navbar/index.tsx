@@ -1,6 +1,6 @@
-import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import styles from "./Navbar.module.css";
 import Logo from "../../../public/logo.svg";
-import { Link, NavLink } from "react-router-dom";
 
 // TODO Tightly coupled to react-router
 export const Navbar = ({
@@ -9,14 +9,14 @@ export const Navbar = ({
   routes: { name: string; path: string }[];
 }) => {
   return (
-    <header className="Navbar">
+    <header className={styles.navbar}>
       <Logo width="150" height="100" />
-      <nav className="Navbar__Links">
+      <nav className={styles.links}>
         {routes.map((route) => (
           <NavLink
             to={route.path}
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? styles.pending : isActive ? styles.active: ""
             }
           >
             {route.name}

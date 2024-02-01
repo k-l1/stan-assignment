@@ -1,4 +1,4 @@
-.Navbar {
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   gap: 4em;
 }
 
-.Navbar__Links {
+.links {
   display: flex;
   gap: 4em;
   flex-direction: row;
@@ -19,12 +19,12 @@
   width: 100%;
 }
 
-.Navbar__Links a {
+.links a {
   font-weight: 800;
   color: grey;
   text-decoration: none;
 }
 
-.Navbar__Links a.active {
+.links a.active {
   color: white;
 }
