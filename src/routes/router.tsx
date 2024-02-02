@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home } from "./Home";
+import { Home } from "./pages/Home";
 import { Layout } from "./Layout";
-import { Shows } from "./Shows";
-import { Movies } from "./Movies";
-import { NotFound } from "./NotFound";
+import { Shows } from "./pages/Shows";
+import { Movies } from "./pages/Movies";
+import { NotFound } from "./pages/NotFound";
 
 const homepageRoutes = [
   {
@@ -15,15 +15,11 @@ const homepageRoutes = [
   {
     path: "tv-shows",
     id: "TV Shows",
-    // Single route in lazy file
-    // lazy: () => import("./pages/About"),
     element: <Shows />,
   },
   {
     path: "movies",
     id: "Movies",
-    // Single route in lazy file
-    // lazy: () => import("./pages/About"),
     element: <Movies />,
   },
   {
