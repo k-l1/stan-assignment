@@ -1,13 +1,17 @@
-import { Link, Outlet } from "react-router-dom";
-import { Navbar } from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 import { navigationRoutes } from "../../static/navigationRoutes";
+import { Navbar } from "../components/Navbar";
 import styles from "./Layout.module.css";
 
 export const Layout = () => {
   return (
     <div className={styles.layout}>
-      <Navbar routes={navigationRoutes} />
-      <Outlet />
+      <div className={styles.header}>
+        <Navbar routes={navigationRoutes} />
+      </div>
+      <div className={styles.main}>
+        <Outlet />
+      </div>
     </div>
   );
 };
