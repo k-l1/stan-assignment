@@ -16,6 +16,12 @@ module.exports = {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
   },
+  devServer: {
+    historyApiFallback: true, // <--
+    static: path.resolve(__dirname, "dist"),
+    port: 3000,
+    compress: true,
+  },
   module: {
     rules: [
       {
