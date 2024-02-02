@@ -1,5 +1,5 @@
 export type Program = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   type: Type;

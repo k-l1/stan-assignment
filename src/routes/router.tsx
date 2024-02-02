@@ -1,9 +1,11 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
-import { Home } from "./pages/Home";
 import { Layout } from "./Layout";
-import { Shows } from "./pages/Shows";
+import { Container } from "./pages/Container";
 import { Movies } from "./pages/Movies";
 import { NotFound } from "./pages/NotFound";
+import { Programs } from "./pages/Programs";
+import { Shows } from "./pages/Shows";
+import { Home } from "./pages/Home";
 
 const contentLoader = async () => {
   const res = await fetch(`/static/data.json`);
@@ -23,24 +25,31 @@ export const router = createBrowserRouter([
         loader: async () => redirect("/home"),
       },
       {
+        id: "home",
         path: "home",
-        id: "Home",
-        element: <Home />,
+        element: <Container />,
         loader: contentLoader,
+
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "program/:id",
+            element: <Programs />,
+          },
+        ],
       },
-      {
-        path: "home/program",
-        id: "Program",
-        element: <Shows />,
-      },
+
       {
         path: "tv-shows",
-        id: "TV Shows",
+        id: "series",
         element: <Shows />,
       },
       {
         path: "movies",
-        id: "Movies",
+        id: "movies",
         element: <Movies />,
       },
       {

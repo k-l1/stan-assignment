@@ -1,0 +1,40 @@
+.program {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  width: 100%;
+}
+
+/* Medium devices (landscape tablets, 768px and below) */
+@media only screen and (max-width: 768px) {
+  .program {
+    flex-direction: column;
+  }
+}
+
+.program img {
+  max-width: 35%;
+  height: auto;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.5vh;
+  font-weight: 400;
+}
+
+.blurb h1 {
+  font-size: 4vw;
+  line-height: 1.2em;
+}
+
+.blurb h3 {
+  font-size: 3vw;
+}
+
+.blurb p {
+  font-size: 2vw;
+}
