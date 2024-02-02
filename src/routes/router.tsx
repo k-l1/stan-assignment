@@ -29,6 +29,11 @@ export const router = createBrowserRouter([
         loader: contentLoader,
       },
       {
+        path: "home/program",
+        id: "Program",
+        element: <Shows />,
+      },
+      {
         path: "tv-shows",
         id: "TV Shows",
         element: <Shows />,

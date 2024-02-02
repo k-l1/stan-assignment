@@ -1,8 +1,8 @@
-import { Card, CardProps } from "../Card";
+import { Card, CardItem } from "../Card";
 import styles from "./Carousel.module.css";
 
 export interface CarouselProps {
-  items: CardProps[];
+  items: CardItem[];
   onClick: (id: string) => void;
 }
 

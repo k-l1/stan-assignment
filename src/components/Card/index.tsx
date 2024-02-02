@@ -1,9 +1,13 @@
 import styles from "./Card.module.css";
-export type CardProps = {
+
+export type CardItem = {
   id: string;
-  callback: (id: string) => void;
   image: string;
   title: string;
+};
+
+type CardProps = CardItem & {
+  callback: (id: string) => void;
 };
 
 export const Card = ({ id, title, callback, image }: CardProps) => {
