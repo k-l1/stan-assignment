@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: path.join(__dirname, "src", "index.tsx"),
@@ -10,6 +11,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "main.css",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "**/data.json", to: "static/data.json" }],
     }),
   ],
   performance: {

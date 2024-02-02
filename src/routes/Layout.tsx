@@ -3,6 +3,7 @@ import { navigationRoutes } from "../../static/navigationRoutes";
 import { Navbar } from "../components/Navbar";
 import styles from "./Layout.module.css";
 
+// TODO: Add error boundary
 export const Layout = () => {
   return (
     <div className={styles.layout}>
