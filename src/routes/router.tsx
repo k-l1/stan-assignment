@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Layout } from "./Layout";
 import { Shows } from "./pages/Shows";
@@ -13,34 +13,35 @@ const contentLoader = async () => {
   return res.json();
 };
 
-const homepageRoutes = [
-  {
-    path: "home",
-    id: "Home",
-    index: true,
-    element: <Home />,
-    loader: contentLoader,
-  },
-  {
-    path: "tv-shows",
-    id: "TV Shows",
-    element: <Shows />,
-  },
-  {
-    path: "movies",
-    id: "Movies",
-    element: <Movies />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-];
-
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: homepageRoutes,
+    children: [
+      {
+        index: true,
+        loader: async () => redirect("/home"),
+      },
+      {
+        path: "home",
+        id: "Home",
+        element: <Home />,
+        loader: contentLoader,
+      },
+      {
+        path: "tv-shows",
+        id: "TV Shows",
+        element: <Shows />,
+      },
+      {
+        path: "movies",
+        id: "Movies",
+        element: <Movies />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
   },
 ]);
