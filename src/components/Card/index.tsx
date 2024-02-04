@@ -8,11 +8,16 @@ export type CardItem = {
 
 type CardProps = CardItem & {
   callback: (id: string) => void;
+  isActive: boolean;
 };
 
-export const Card = ({ id, title, callback, image }: CardProps) => {
+export const Card = ({ id, title, callback, image, isActive }: CardProps) => {
   return (
-    <div id={id} className={styles.card} onClick={() => callback(id)}>
+    <div
+      id={id}
+      className={`${styles.card} ${isActive ? styles.active : ""}`}
+      onClick={() => callback(id)}
+    >
       <img src={image} alt={title} />
     </div>
   );

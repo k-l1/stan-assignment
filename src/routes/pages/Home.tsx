@@ -13,5 +13,7 @@ export const Home = () => {
     image: x.image,
   }));
 
-  return data ? <Carousel onClick={navigateById} items={items} /> : null;
+  return data ? (
+    <Carousel onClick={navigateById} carouselItems={items} itemsToShow={6} />
+  ) : null;
 };
