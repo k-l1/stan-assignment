@@ -1,4 +1,4 @@
-import { createBrowserRouter, redirect } from "react-router-dom";
+import { createBrowserRouter, defer, redirect } from "react-router-dom";
 import { Layout } from "./Layout";
 import { Container } from "./pages/Container";
 import { Movies } from "./pages/Movies";
@@ -7,12 +7,16 @@ import { Programs } from "./pages/Programs";
 import { Shows } from "./pages/Shows";
 import { Home } from "./pages/Home";
 
+const delay = (time: number) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
+
 const contentLoader = async () => {
-  const res = await fetch(`/static/data.json`);
-  if (res.status === 404) {
+  const result = await fetch(`/static/data.json`);
+  if (result.status === 404) {
     throw new Response("Not Found", { status: 404 });
   }
-  return res.json();
+  return defer({ data: delay(2000).then(() => result.json()) });
 };
 
 export const router = createBrowserRouter([

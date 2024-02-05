@@ -10,7 +10,7 @@ module.exports = {
       template: path.join(__dirname, "public", "index.html"),
     }),
     new MiniCssExtractPlugin({
-      filename: "main.css",
+      filename: "styles.css",
     }),
     new CopyPlugin({
       patterns: [{ from: "**/data.json", to: "static/data.json" }],

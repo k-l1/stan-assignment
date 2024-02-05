@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { Card, CardItem } from "../Card";
 import styles from "./Carousel.module.css";
 import { useKeyPress } from "../../utils/keypress";
