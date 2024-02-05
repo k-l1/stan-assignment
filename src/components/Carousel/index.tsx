@@ -45,8 +45,6 @@ export const Carousel = ({
         return (prev - 1) % length;
       });
     enterKeyPress && onClick(items[activeIdx].id);
-    console.log(items);
-    console.log(page);
   }, [rightKeyPress, leftKeyPress, enterKeyPress]);
 
   const items = useMemo(() => {

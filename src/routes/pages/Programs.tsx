@@ -1,12 +1,20 @@
-import { useAsyncValue, useParams } from "react-router-dom";
+import { useAsyncValue, useNavigate, useParams } from "react-router-dom";
 import { Program } from "../../../static/types";
 import styles from "./Programs.module.css";
+import { useKeyPress } from "../../utils/keypress";
+import { useEffect } from "react";
 
 export const Programs = () => {
   const data = useAsyncValue() as Program[];
-
   const { id } = useParams();
+  const navigate = useNavigate();
   const program = data.filter((d) => d.id == id)[0];
+
+  const backKeyPress = useKeyPress("Backspace");
+
+  useEffect(() => {
+    backKeyPress && navigate("/home");
+  }, [backKeyPress]);
 
   return (
     <div className={styles.program}>
