@@ -1,18 +1,26 @@
-import { useAsyncValue, useNavigate } from "react-router-dom";
+import { Suspense } from "react";
+import { Await, useNavigate, useRouteLoaderData } from "react-router-dom";
 import type { Program } from "../../../static/types";
 import { Carousel } from "../../components/Carousel";
+import { HomeSkeleton } from "../loading/HomeSkeleton";
 
 export const Home = () => {
-  const data = useAsyncValue() as Program[];
+  const { data } = useRouteLoaderData("home") as { data: Program[] };
   const navigate = useNavigate();
   const navigateById = (id: string) => navigate(`./program/${id}`);
 
   return (
-    <Carousel
-      onClick={navigateById}
-      carouselItems={mapToCarousel(data)}
-      itemsToShow={6}
-    />
+    <Suspense fallback={<HomeSkeleton />}>
+      <Await resolve={data}>
+        {(items) => (
+          <Carousel
+            onClick={navigateById}
+            carouselItems={mapToCarousel(items)}
+            itemsToShow={6}
+          />
+        )}
+      </Await>
+    </Suspense>
   );
 };
 

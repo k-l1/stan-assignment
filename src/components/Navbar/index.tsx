@@ -12,11 +12,12 @@ export const Navbar = ({
     <header className={styles.navbar}>
       <Logo width="150" height="100" />
       <nav className={styles.links}>
-        {routes.map((route) => (
+        {routes.map((route, idx) => (
           <NavLink
+            key={idx}
             to={route.path}
             className={({ isActive, isPending }) =>
-              isPending ? styles.pending : isActive ? styles.active: ""
+              isPending ? styles.pending : isActive ? styles.active : ""
             }
           >
             {route.name}

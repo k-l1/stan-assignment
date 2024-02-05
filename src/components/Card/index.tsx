@@ -15,10 +15,14 @@ export const Card = ({ id, title, callback, image, isActive }: CardProps) => {
   return (
     <div
       id={id}
-      className={`${styles.card} ${isActive ? styles.active : ""}`}
+      className={`${styles.card} ${isActive && image ? styles.active : ""}`}
       onClick={() => callback(id)}
     >
-      <img src={image} alt={title} />
+      {image ? (
+        <img src={image} alt={title} />
+      ) : (
+        <div className={styles.placeholder} />
+      )}
     </div>
   );
 };

@@ -5,10 +5,13 @@
   cursor: pointer;
   aspect-ratio: 2/3; /* Preserve image aspect ratio */
   object-fit: fill;
+  animation: fadeIn 0.7s;
 }
 
 .card img {
   max-width: 100%;
+  width: 100%;
+
   padding: 4px;
   overflow: hidden;
 }
@@ -17,4 +20,28 @@
   border: 4px solid #07f;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, lightgrey 40%, #eee 50%, lightgrey 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 2s infinite linear;
 }
