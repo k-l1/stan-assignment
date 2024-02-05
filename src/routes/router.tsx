@@ -6,6 +6,7 @@ import { NotFound } from "./pages/NotFound";
 import { Programs } from "./pages/Programs";
 import { Shows } from "./pages/Shows";
 import { Home } from "./pages/Home";
+import { ErrorPage } from "./pages/ErrorPage";
 
 const delay = (time: number) => {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
         path: "home",
         element: <Container />,
         loader: contentLoader,
-
+        errorElement: <ErrorPage />,
         children: [
           {
             index: true,
